@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 // });
 
 let cache = {
-    count : 168
+    count : process.env.COUNT
 }
 
 app.get('/payment/list', async (req, res) => {
