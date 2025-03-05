@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 // });
 
 let cache = {
-    count : process.env.COUNT
+    count : Number( process.env.COUNT)
 }
 
 app.get('/payment/list', async (req, res) => {
@@ -65,6 +65,8 @@ app.get('/payment/create', async (req, res) => {
     // const id = req.query.id;
     // console.log(id);
     cache.count += 1
+    console.log(`DH0${cache.count}`);
+    
     try {
         const  { amount } = req.query;
         const response = await fetch(`https://qr.sepay.vn/img?acc=${process.env.SEPAY_ACC_NUMBER}&bank=MBBank&amount=${amount}&des=DH0${cache.count}&template=TEMPLATE&download=DOWNLOAD`, {
